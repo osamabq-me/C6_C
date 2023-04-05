@@ -18,7 +18,6 @@ namespace Inset_and_get_data
                 try
                 {
                     string user, pass, db;
-
                     Console.WriteLine("Conect to Database");
                     Console.WriteLine("Input User ID");
                     user = Console.ReadLine();
