@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -128,14 +129,14 @@ namespace Inset_and_get_data
                                                 break;
                                             case '5':
                                                 {
-                                                    string nim;
+                                                    string noid;
                                                     Console.Clear();
                                                     Console.WriteLine("Welcome to search function ");
-                                                    Console.WriteLine("Input student Id to search for ");
-                                                    nim = Console.ReadLine();
+                                                    Console.WriteLine("Input department id to search for students ");
+                                                    noid = Console.ReadLine();
                                                     try
                                                     {
-                                                        pr.search(nim, conn);
+                                                        pr.search(noid, conn);
                                                     }
                                                     catch
                                                     {
@@ -239,10 +240,10 @@ namespace Inset_and_get_data
 
         }
 
-        public void search(string nim, SqlConnection con)
+        public void search(string noid, SqlConnection con)
         {
 
-            SqlCommand cmd = new SqlCommand("select * from Student where student_id " + " = '" + nim + "'", con);
+            SqlCommand cmd = new SqlCommand("select * from Student where department_id " + " = '" + noid + "'", con);
             SqlDataReader r = cmd.ExecuteReader();
             Console.WriteLine();
             Console.WriteLine();
